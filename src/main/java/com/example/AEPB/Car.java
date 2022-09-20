@@ -12,7 +12,7 @@ public class Car {
         this.ceritification = ceritification;
     }
 
-    public Ceritification getCeritification() {
+    public Ceritification getCertification() {
         return ceritification;
     }
 }

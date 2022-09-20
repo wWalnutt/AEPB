@@ -1,7 +1,6 @@
 package com.example.AEPB;
 
 
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -32,7 +31,7 @@ public class ParkingLot {
 
     public Optional<Car> getCar(Ceritification ceritification) {
         for(Car car : carList){
-            if (ceritification.equals(car.getCeritification())) {
+            if (ceritification.equals(car.getCertification())) {
                 return Optional.of(car);
             }
         }

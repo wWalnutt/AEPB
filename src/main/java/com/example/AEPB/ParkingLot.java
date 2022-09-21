@@ -13,6 +13,10 @@ public class ParkingLot {
         this.carCerMap = new HashMap<>();
     }
 
+    public boolean containCar(Certification certification){
+        return carCerMap.containsKey(certification);
+    }
+
     public boolean isFull(){
         return carCerMap.size()==size;
     }

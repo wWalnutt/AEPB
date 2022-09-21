@@ -53,4 +53,46 @@ public class ParkingManTest {
         assertEquals(Optional.empty(), parkingMan.parkCar(car2));
     }
 
+    @Test
+    void should_get_a_car_when_use_parkingMan_with_right_certification(){
+        //Given
+        ParkingLot parkinglot1 = new ParkingLot(5);
+        ParkingLot parkinglot2 = new ParkingLot(5);
+        ParkingMan parkingMan = new ParkingMan(List.of(parkinglot1,parkinglot2));
+        Car car = new Car();
+        Certification certification = parkingMan.parkCar(car).get();
+        //When
+        Car myCar = parkingMan.getCar(certification).get();
+        //Then
+        assertEquals(0,parkinglot1.count());
+        assertEquals(car, myCar);
+    }
+
+    @Test
+    void should_not_get_a_car_when_use_parkingMan_with_wrong_certification(){
+        //Given
+        ParkingLot parkinglot1 = new ParkingLot(5);
+        ParkingLot parkinglot2 = new ParkingLot(5);
+        ParkingMan parkingMan = new ParkingMan(List.of(parkinglot1,parkinglot2));
+        Car car = new Car();
+        parkingMan.parkCar(car).get();
+        Certification wrongCertification = new Certification();
+        //When Then
+        assertEquals(Optional.empty(), parkingMan.getCar(wrongCertification));
+        assertEquals(1,parkinglot1.count());
+    }
+
+    @Test
+    void should_not_get_a_car_when_use_parkingMan_with_empty_parkingLot(){
+        //Given
+        ParkingLot parkinglot1 = new ParkingLot(5);
+        ParkingLot parkinglot2 = new ParkingLot(5);
+        ParkingMan parkingMan = new ParkingMan(List.of(parkinglot1,parkinglot2));
+        Certification certification = new Certification();
+        //When Then
+        assertEquals(Optional.empty(), parkingMan.getCar(certification));
+        assertEquals(0,parkinglot1.count());
+        assertEquals(0,parkinglot2.count());
+    }
+
 }

@@ -22,4 +22,13 @@ public class ParkingMan {
         }
         return Optional.empty();
     }
+
+    public Optional<Car> getCar(Certification certification) {
+        for(int i = 1; i <= parkingLotCount ; i++){
+            if(parkingLots.get(i).containCar(certification)){
+                return parkingLots.get(i).getCar(certification);
+            }
+        }
+        return Optional.empty();
+    }
 }

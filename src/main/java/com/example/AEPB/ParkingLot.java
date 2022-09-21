@@ -4,40 +4,40 @@ package com.example.AEPB;
 import java.util.*;
 
 public class ParkingLot {
-    private int size;
-    private Map<Certification, Car> carCerMap;
+    private int parkingLotSize;
+    private Map<Certification, Car> parkingSpace;
 
 
-    public ParkingLot(int size) {
-        this.size = size;
-        this.carCerMap = new HashMap<>();
+    public ParkingLot(int parkingLotSize) {
+        this.parkingLotSize = parkingLotSize;
+        this.parkingSpace = new HashMap<>();
     }
 
-    public boolean containCar(Certification certification){
-        return carCerMap.containsKey(certification);
+    public boolean isContainCar(Certification certification){
+        return parkingSpace.containsKey(certification);
     }
 
     public boolean isFull(){
-        return carCerMap.size()==size;
+        return parkingSpace.size()== parkingLotSize;
     }
 
     public Optional<Certification> parkCar(Car car){
-        if(count() == size){
+        if(size() == parkingLotSize){
             return Optional.empty();
         }
         Certification certification =  new Certification();
-        carCerMap.put(certification,car);
+        parkingSpace.put(certification,car);
        return Optional.of(certification);
     }
 
-    public int count() {
-        return carCerMap.size();
+    public int size() {
+        return parkingSpace.size();
     }
 
     public Optional<Car> getCar(Certification certification) {
-        if(carCerMap.containsKey(certification)){
-            Car car = carCerMap.get(certification);
-            carCerMap.remove(certification);
+        if(parkingSpace.containsKey(certification)){
+            Car car = parkingSpace.get(certification);
+            parkingSpace.remove(certification);
             return Optional.of(car);
         }
         return Optional.empty();

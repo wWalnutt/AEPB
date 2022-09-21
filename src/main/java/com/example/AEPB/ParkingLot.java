@@ -1,14 +1,11 @@
 package com.example.AEPB;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class ParkingLot {
-    private  int size;
-
-    private List<Car>  carList =  new ArrayList<>();;
+    private int size;
+    private Map<Ceritification, Car> carCerMap = new HashMap<>();
 
 
     public ParkingLot(int size) {
@@ -16,24 +13,23 @@ public class ParkingLot {
     }
 
     public Optional<Ceritification> parkCar(Car car) throws Exception {
-        if(carList.size() == size){
+        if(count() == size){
             return Optional.empty();
         }
-        carList.add(car);
         Ceritification  ceritification =  new Ceritification();
-        car.bind(ceritification);
+        carCerMap.put(ceritification,car);
        return Optional.of(ceritification);
     }
 
     public int count() {
-        return carList.size();
+        return carCerMap.size();
     }
 
     public Optional<Car> getCar(Ceritification ceritification) {
-        for(Car car : carList){
-            if (ceritification.equals(car.getCertification())) {
-                return Optional.of(car);
-            }
+        if(carCerMap.containsKey(ceritification)){
+            Car car = carCerMap.get(ceritification);
+            carCerMap.remove(ceritification);
+            return Optional.of(car);
         }
         return Optional.empty();
     }

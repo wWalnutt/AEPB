@@ -17,7 +17,6 @@ class ParkingLotTest {
 		Ceritification ceritification = parkinglot.parkCar(car).get();
 		//Then
 		assertEquals(1, parkinglot.count());
-		assertTrue(car.verify(ceritification));
 	}
 
 	@Test

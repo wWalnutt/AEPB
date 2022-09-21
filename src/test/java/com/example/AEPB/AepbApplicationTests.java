@@ -41,6 +41,7 @@ class ParkingLotTest {
 		Ceritification ceritification = new Ceritification();
 		//Then
 		assertEquals(Optional.empty(), parkinglot.getCar(ceritification));
+		assertEquals(1, parkinglot.count());
 	}
 
 	@Test
@@ -52,6 +53,7 @@ class ParkingLotTest {
 		Ceritification ceritification = parkinglot.parkCar(car1).get();
 		//Then
 		assertEquals(car1, parkinglot.getCar(ceritification).get());
+		assertEquals(0, parkinglot.count());
 	}
 
 

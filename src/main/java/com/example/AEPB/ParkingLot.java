@@ -5,7 +5,7 @@ import java.util.*;
 
 public class ParkingLot {
     private int size;
-    private Map<Ceritification, Car> carCerMap;
+    private Map<Certification, Car> carCerMap;
 
 
     public ParkingLot(int size) {
@@ -13,23 +13,23 @@ public class ParkingLot {
         this.carCerMap = new HashMap<>();
     }
 
-    public Optional<Ceritification> parkCar(Car car){
+    public Optional<Certification> parkCar(Car car){
         if(count() == size){
             return Optional.empty();
         }
-        Ceritification  ceritification =  new Ceritification();
-        carCerMap.put(ceritification,car);
-       return Optional.of(ceritification);
+        Certification certification =  new Certification();
+        carCerMap.put(certification,car);
+       return Optional.of(certification);
     }
 
     public int count() {
         return carCerMap.size();
     }
 
-    public Optional<Car> getCar(Ceritification ceritification) {
-        if(carCerMap.containsKey(ceritification)){
-            Car car = carCerMap.get(ceritification);
-            carCerMap.remove(ceritification);
+    public Optional<Car> getCar(Certification certification) {
+        if(carCerMap.containsKey(certification)){
+            Car car = carCerMap.get(certification);
+            carCerMap.remove(certification);
             return Optional.of(car);
         }
         return Optional.empty();

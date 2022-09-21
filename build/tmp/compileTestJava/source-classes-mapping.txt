@@ -1,2 +1,4 @@
-com/example/AEPB/AepbApplicationTests.java
+com/example/AEPB/ParkingLotTest.java
  com.example.AEPB.ParkingLotTest
+com/example/AEPB/ParkingManTest.java
+ com.example.AEPB.ParkingManTest

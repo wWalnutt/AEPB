@@ -5,14 +5,15 @@ import java.util.*;
 
 public class ParkingLot {
     private int size;
-    private Map<Ceritification, Car> carCerMap = new HashMap<>();
+    private Map<Ceritification, Car> carCerMap;
 
 
     public ParkingLot(int size) {
         this.size = size;
+        this.carCerMap = new HashMap<>();
     }
 
-    public Optional<Ceritification> parkCar(Car car) throws Exception {
+    public Optional<Ceritification> parkCar(Car car){
         if(count() == size){
             return Optional.empty();
         }

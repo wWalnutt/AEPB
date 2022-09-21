@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.AEPB.ParkingLotTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-09-21T08:00:52" hostname="Zaijuns-MacBook-Pro.local" time="0.02">
+<testsuite name="com.example.AEPB.ParkingLotTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-09-21T08:02:29" hostname="Zaijuns-MacBook-Pro.local" time="0.018">
   <properties/>
-  <testcase name="should_get_car_when_certification_is_verify()" classname="com.example.AEPB.ParkingLotTest" time="0.015"/>
+  <testcase name="should_get_car_when_certification_is_verify()" classname="com.example.AEPB.ParkingLotTest" time="0.014"/>
   <testcase name="should_not_parking_car_when_parking_no_place()" classname="com.example.AEPB.ParkingLotTest" time="0.001"/>
-  <testcase name="should_not_get_car_when_parkingLot_is_empty()" classname="com.example.AEPB.ParkingLotTest" time="0.0"/>
+  <testcase name="should_not_get_car_when_parkingLot_is_empty()" classname="com.example.AEPB.ParkingLotTest" time="0.001"/>
   <testcase name="should_not_get_car_when_certification_is_no_verify()" classname="com.example.AEPB.ParkingLotTest" time="0.0"/>
   <testcase name="should_parking_car_when_can_parking()" classname="com.example.AEPB.ParkingLotTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

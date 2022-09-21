@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ParkingLotTest {
 
 	@Test
-	void should_parking_car_when_can_parking() throws Exception {
+	void should_parking_car_when_can_parking(){
 		//Given
 		ParkingLot parkinglot = new ParkingLot(10);
 		Car car = new Car();
@@ -20,7 +20,7 @@ class ParkingLotTest {
 	}
 
 	@Test
-	void should_not_parking_car_when_parking_no_place() throws Exception {
+	void should_not_parking_car_when_parking_no_place(){
 		//Given
 		ParkingLot parkinglot = new ParkingLot(2);
 		Car car1 = new Car();
@@ -32,7 +32,7 @@ class ParkingLotTest {
 		assertEquals(true,parkinglot.parkCar(car3).isEmpty());
 	}
 	@Test
-	void should_not_get_car_when_certification_is_no_verify() throws Exception {
+	void should_not_get_car_when_certification_is_no_verify(){
 		//Given
 		ParkingLot parkinglot = new ParkingLot(10);
 		Car car1 = new Car();
@@ -44,7 +44,7 @@ class ParkingLotTest {
 	}
 
 	@Test
-	void should_get_car_when_certification_is_verify() throws Exception {
+	void should_get_car_when_certification_is_verify(){
 		//Given
 		ParkingLot parkinglot = new ParkingLot(10);
 		Car car1 = new Car();
@@ -56,7 +56,7 @@ class ParkingLotTest {
 
 
 	@Test
-	void should_not_get_car_when_parkingLot_is_empty() throws Exception {
+	void should_not_get_car_when_parkingLot_is_empty(){
 		//Given
 		ParkingLot parkinglot = new ParkingLot(10);
 		//When

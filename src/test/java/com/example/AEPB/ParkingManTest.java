@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ParkingManTest {
     @Test
@@ -20,6 +21,7 @@ public class ParkingManTest {
         //Then
         assertEquals(1, certification.getParkingLotNum());
         assertEquals(1, parkinglot1.count());
+        assertEquals(0, parkinglot2.count());
     }
 
     @Test
@@ -49,8 +51,15 @@ public class ParkingManTest {
         parkinglot1.parkCar(car1);
         Car car2 = new Car();
         parkinglot2.parkCar(car2);
-        //When Then
-        assertEquals(Optional.empty(), parkingMan.parkCar(car2));
+        Car car3 = new Car();
+        //When
+        Optional<Certification> certification = parkingMan.parkCar(car3);
+        //Then
+        assertEquals(Optional.empty(), certification);
+        assertEquals(1, parkinglot1.count());
+        assertEquals(1, parkinglot2.count());
+        assertTrue(parkinglot1.isFull());
+        assertTrue(parkinglot2.isFull());
     }
 
     @Test
@@ -65,6 +74,7 @@ public class ParkingManTest {
         Car myCar = parkingMan.getCar(certification).get();
         //Then
         assertEquals(0,parkinglot1.count());
+        assertEquals(0,parkinglot2.count());
         assertEquals(car, myCar);
     }
 
@@ -75,11 +85,14 @@ public class ParkingManTest {
         ParkingLot parkinglot2 = new ParkingLot(5);
         ParkingMan parkingMan = new ParkingMan(List.of(parkinglot1,parkinglot2));
         Car car = new Car();
-        parkingMan.parkCar(car).get();
+        parkingMan.parkCar(car);
         Certification wrongCertification = new Certification();
-        //When Then
-        assertEquals(Optional.empty(), parkingMan.getCar(wrongCertification));
+        //When
+        Optional<Car> myCar = parkingMan.getCar(wrongCertification);
+        //Then
+        assertEquals(Optional.empty(), myCar);
         assertEquals(1,parkinglot1.count());
+        assertEquals(0,parkinglot2.count());
     }
 
     @Test
@@ -89,8 +102,10 @@ public class ParkingManTest {
         ParkingLot parkinglot2 = new ParkingLot(5);
         ParkingMan parkingMan = new ParkingMan(List.of(parkinglot1,parkinglot2));
         Certification certification = new Certification();
-        //When Then
-        assertEquals(Optional.empty(), parkingMan.getCar(certification));
+        //When
+        Optional<Car> myCar = parkingMan.getCar(certification);
+        //Then
+        assertEquals(Optional.empty(), myCar);
         assertEquals(0,parkinglot1.count());
         assertEquals(0,parkinglot2.count());
     }

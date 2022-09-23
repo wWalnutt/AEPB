@@ -24,10 +24,11 @@ public class ParkingMan {
     }
 
     public Optional<Car> getCar(Certification certification) {
-        for(int i = 1; i <= parkingLotQuantity; i++){
-            if(parkingLots.get(i).isContainCar(certification)){
-                return parkingLots.get(i).getCar(certification);
-            }
+        int num = certification.getParkingLotNum();
+        if(num == 0)
+            return Optional.empty();
+        if(parkingLots.get(num).isContainCar(certification)){
+            return parkingLots.get(num).getCar(certification);
         }
         return Optional.empty();
     }

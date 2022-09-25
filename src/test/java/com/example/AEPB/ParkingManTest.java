@@ -20,8 +20,8 @@ public class ParkingManTest {
         Certification certification = parkingMan.parkCar(car).get();
         //Then
         assertEquals(1, certification.getParkingLotNum());
-        assertEquals(1, parkinglot1.size());
-        assertEquals(0, parkinglot2.size());
+        assertEquals(1, parkinglot1.count());
+        assertEquals(0, parkinglot2.count());
     }
 
     @Test
@@ -37,8 +37,8 @@ public class ParkingManTest {
         Certification certification = parkingMan.parkCar(car2).get();
         //Then
         assertEquals(2, certification.getParkingLotNum());
-        assertEquals(1, parkinglot1.size());
-        assertEquals(1, parkinglot2.size());
+        assertEquals(1, parkinglot1.count());
+        assertEquals(1, parkinglot2.count());
     }
 
     @Test
@@ -56,8 +56,8 @@ public class ParkingManTest {
         Optional<Certification> certification = parkingMan.parkCar(car3);
         //Then
         assertEquals(Optional.empty(), certification);
-        assertEquals(1, parkinglot1.size());
-        assertEquals(1, parkinglot2.size());
+        assertEquals(1, parkinglot1.count());
+        assertEquals(1, parkinglot2.count());
         assertTrue(parkinglot1.isFull());
         assertTrue(parkinglot2.isFull());
     }
@@ -73,8 +73,8 @@ public class ParkingManTest {
         //When
         Car myCar = parkingMan.getCar(certification).get();
         //Then
-        assertEquals(0,parkinglot1.size());
-        assertEquals(0,parkinglot2.size());
+        assertEquals(0,parkinglot1.count());
+        assertEquals(0,parkinglot2.count());
         assertEquals(car, myCar);
     }
 
@@ -91,8 +91,8 @@ public class ParkingManTest {
         Optional<Car> myCar = parkingMan.getCar(wrongCertification);
         //Then
         assertEquals(Optional.empty(), myCar);
-        assertEquals(1,parkinglot1.size());
-        assertEquals(0,parkinglot2.size());
+        assertEquals(1,parkinglot1.count());
+        assertEquals(0,parkinglot2.count());
     }
 
     @Test
@@ -106,8 +106,8 @@ public class ParkingManTest {
         Optional<Car> myCar = parkingMan.getCar(certification);
         //Then
         assertEquals(Optional.empty(), myCar);
-        assertEquals(0,parkinglot1.size());
-        assertEquals(0,parkinglot2.size());
+        assertEquals(0,parkinglot1.count());
+        assertEquals(0,parkinglot2.count());
     }
 
 }

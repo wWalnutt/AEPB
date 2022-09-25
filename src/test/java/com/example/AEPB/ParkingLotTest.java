@@ -16,7 +16,7 @@ class ParkingLotTest {
 		//When
 		Certification certification = parkinglot.parkCar(car).get();
 		//Then
-		assertEquals(1, parkinglot.size());
+		assertEquals(1, parkinglot.count());
 	}
 
 	@Test
@@ -41,7 +41,7 @@ class ParkingLotTest {
 		Certification certification = new Certification();
 		//Then
 		assertEquals(Optional.empty(), parkinglot.getCar(certification));
-		assertEquals(1, parkinglot.size());
+		assertEquals(1, parkinglot.count());
 	}
 
 	@Test
@@ -53,7 +53,7 @@ class ParkingLotTest {
 		Certification certification = parkinglot.parkCar(car1).get();
 		//Then
 		assertEquals(car1, parkinglot.getCar(certification).get());
-		assertEquals(0, parkinglot.size());
+		assertEquals(0, parkinglot.count());
 	}
 
 

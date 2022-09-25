@@ -4,13 +4,22 @@ package com.example.AEPB;
 import java.util.*;
 
 public class ParkingLot {
+    private int parkingLotNum;
     private int parkingLotSize;
     private Map<Certification, Car> parkingSpace;
 
 
     public ParkingLot(int parkingLotSize) {
+        this.parkingLotNum = 0;
         this.parkingLotSize = parkingLotSize;
         this.parkingSpace = new HashMap<>();
+    }
+    protected void setParkingLotNum(int parkingLotNum){
+        this.parkingLotNum = parkingLotNum;
+    }
+
+    public int getParkingLotNum(){
+        return this.parkingLotNum;
     }
 
     public boolean isContainCar(Certification certification){
@@ -22,15 +31,16 @@ public class ParkingLot {
     }
 
     public Optional<Certification> parkCar(Car car){
-        if(size() == parkingLotSize){
+        if(count() == parkingLotSize){
             return Optional.empty();
         }
         Certification certification =  new Certification();
+        certification.setParkingLotNum(this.parkingLotNum);
         parkingSpace.put(certification,car);
        return Optional.of(certification);
     }
 
-    public int size() {
+    public int count() {
         return parkingSpace.size();
     }
 

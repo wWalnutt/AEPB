@@ -1,10 +1,13 @@
 package com.example.AEPB;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
-public class ParkingMan {
-    private int parkingLotQuantity = 0;
-    private Map<Integer, ParkingLot> parkingLots = new HashMap<>();
+public abstract class ParkingMan {
+    protected int parkingLotQuantity = 0;
+    protected Map<Integer, ParkingLot> parkingLots = new HashMap<>();
     public ParkingMan(List<ParkingLot> parkinglots) {
         for(ParkingLot parkingLot : parkinglots){
             parkingLotQuantity++;
@@ -13,15 +16,7 @@ public class ParkingMan {
         }
     }
 
-    public Optional<Certification> parkCar(Car car) {
-        for(int i = 1; i <= parkingLotQuantity; i++){
-            if(!parkingLots.get(i).isFull()){
-                Certification certification = parkingLots.get(i).parkCar(car).get();
-                return Optional.of(certification);
-            }
-        }
-        return Optional.empty();
-    }
+    public abstract Optional<Certification> parkCar(Car car);
 
     public Optional<Car> getCar(Certification certification) {
         int num = certification.getParkingLotNum();

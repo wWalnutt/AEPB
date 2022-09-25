@@ -22,6 +22,10 @@ public class ParkingLot {
         return this.parkingLotNum;
     }
 
+    public int remainParkingSpaceCount(){
+        return parkingLotSize - parkingSpace.size();
+    }
+
     public boolean isContainCar(Certification certification){
         return parkingSpace.containsKey(certification);
     }

@@ -9,10 +9,8 @@ public class PracticeParkingMan extends ParkingMan{
     @Override
     public Optional<Certification> parkCar(Car car) {
         for(int i = 1; i <= parkingLotQuantity; i++){
-            if(!parkingLots.get(i).isFull()){
-                Certification certification = parkingLots.get(i).parkCar(car).get();
-                return Optional.of(certification);
-            }
+            if(!parkingLots.get(i).isFull())
+                return parkingLots.get(i).parkCar(car);
         }
         return Optional.empty();
     }

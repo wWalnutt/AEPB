@@ -14,7 +14,7 @@ public class PracticeParkingManTest {
         //Given
         ParkingLot parkinglot1 = new ParkingLot(5);
         ParkingLot parkinglot2 = new ParkingLot(6);
-        PracticeParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
+        ParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
         Car car = new Car();
         //When
         Certification certification = parkingMan.parkCar(car).get();
@@ -29,7 +29,7 @@ public class PracticeParkingManTest {
         //Given
         ParkingLot parkinglot1 = new ParkingLot(1);
         ParkingLot parkinglot2 = new ParkingLot(2);
-        PracticeParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
+        ParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
         Car car1 = new Car();
         parkinglot1.parkCar(car1);
         Car car2 = new Car();
@@ -46,7 +46,7 @@ public class PracticeParkingManTest {
         //Given
         ParkingLot parkinglot1 = new ParkingLot(1);
         ParkingLot parkinglot2 = new ParkingLot(1);
-        PracticeParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
+        ParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
         Car car1 = new Car();
         parkinglot1.parkCar(car1);
         Car car2 = new Car();
@@ -67,7 +67,7 @@ public class PracticeParkingManTest {
         //Given
         ParkingLot parkinglot1 = new ParkingLot(5);
         ParkingLot parkinglot2 = new ParkingLot(5);
-        PracticeParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
+        ParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
         Car car = new Car();
         Certification certification = parkingMan.parkCar(car).get();
         //When
@@ -83,7 +83,7 @@ public class PracticeParkingManTest {
         //Given
         ParkingLot parkinglot1 = new ParkingLot(5);
         ParkingLot parkinglot2 = new ParkingLot(5);
-        PracticeParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
+        ParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
         Car car = new Car();
         parkingMan.parkCar(car);
         Certification wrongCertification = new Certification();
@@ -100,7 +100,7 @@ public class PracticeParkingManTest {
         //Given
         ParkingLot parkinglot1 = new ParkingLot(5);
         ParkingLot parkinglot2 = new ParkingLot(5);
-        PracticeParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
+        ParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
         Certification certification = new Certification();
         //When
         Optional<Car> myCar = parkingMan.getCar(certification);
@@ -115,7 +115,7 @@ public class PracticeParkingManTest {
         //Given
         ParkingLot parkinglot1 = new ParkingLot(5);
         ParkingLot parkinglot2 = new ParkingLot(5);
-        PracticeParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
+        ParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
         Car car = new Car();
         Certification certification = parkinglot1.parkCar(car).get();
         //When
@@ -131,7 +131,7 @@ public class PracticeParkingManTest {
         //Given
         ParkingLot parkinglot1 = new ParkingLot(5);
         ParkingLot parkinglot2 = new ParkingLot(5);
-        PracticeParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
+        ParkingMan parkingMan = new PracticeParkingMan(List.of(parkinglot1,parkinglot2));
         Car car = new Car();
         Certification certification = parkingMan.parkCar(car).get();
         //When

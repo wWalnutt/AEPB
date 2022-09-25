@@ -2,9 +2,11 @@ com/example/AEPB/Certification.java
  com.example.AEPB.Certification
 com/example/AEPB/Car.java
  com.example.AEPB.Car
-com/example/AEPB/PracticeParkingMan.java
- com.example.AEPB.PracticeParkingMan
-com/example/AEPB/ParkingLot.java
- com.example.AEPB.ParkingLot
 com/example/AEPB/ParkingMan.java
  com.example.AEPB.ParkingMan
+com/example/AEPB/ParkingLot.java
+ com.example.AEPB.ParkingLot
+com/example/AEPB/SmartParkingMan.java
+ com.example.AEPB.SmartParkingMan
+com/example/AEPB/PracticeParkingMan.java
+ com.example.AEPB.PracticeParkingMan

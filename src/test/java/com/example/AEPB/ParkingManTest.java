@@ -110,4 +110,35 @@ public class ParkingManTest {
         assertEquals(0,parkinglot2.count());
     }
 
+    @Test
+    void should_get_car_when_park_car_by_myself_and_get_car_by_parkingMan(){
+        //Given
+        ParkingLot parkinglot1 = new ParkingLot(5);
+        ParkingLot parkinglot2 = new ParkingLot(5);
+        ParkingMan parkingMan = new ParkingMan(List.of(parkinglot1,parkinglot2));
+        Car car = new Car();
+        Certification certification = parkinglot1.parkCar(car).get();
+        //When
+        Car myCar = parkingMan.getCar(certification).get();
+        //Then
+        assertEquals(car, myCar);
+        assertEquals(0,parkinglot1.count());
+        assertEquals(0,parkinglot2.count());
+    }
+
+    @Test
+    void should_get_car_when_park_car_by_parkingMan_and_get_car_by_myself(){
+        //Given
+        ParkingLot parkinglot1 = new ParkingLot(5);
+        ParkingLot parkinglot2 = new ParkingLot(5);
+        ParkingMan parkingMan = new ParkingMan(List.of(parkinglot1,parkinglot2));
+        Car car = new Car();
+        Certification certification = parkingMan.parkCar(car).get();
+        //When
+        Car myCar = parkinglot1.getCar(certification).get();
+        //Then
+        assertEquals(car, myCar);
+        assertEquals(0,parkinglot1.count());
+        assertEquals(0,parkinglot2.count());
+    }
 }

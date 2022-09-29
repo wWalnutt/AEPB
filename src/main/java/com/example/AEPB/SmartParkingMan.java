@@ -1,6 +1,7 @@
 package com.example.AEPB;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class SmartParkingMan extends ParkingMan{
@@ -13,11 +14,12 @@ public class SmartParkingMan extends ParkingMan{
     public Optional<Certification> parkCar(Car car) {
         ParkingLot parkingLot = null;
         int mostRemainParkingSpaceNum = 0;
-        for(int i = 1; i <= parkingLotQuantity; i++){
-            ParkingLot currentParkingLot = parkingLots.get(i);
-            if(!currentParkingLot.isFull() && currentParkingLot.remainParkingSpaceCount() > mostRemainParkingSpaceNum){
-                parkingLot = currentParkingLot;
-                mostRemainParkingSpaceNum = currentParkingLot.remainParkingSpaceCount();
+        for(Map.Entry<Integer, ParkingLot> entry : parkingLots.entrySet()){
+            int key = entry.getKey();
+            ParkingLot value = entry.getValue();
+            if(!value.isFull() && value.remainParkingSpaceCount() > mostRemainParkingSpaceNum){
+                parkingLot = value;
+                mostRemainParkingSpaceNum = value.remainParkingSpaceCount();
             }
         }
         if(parkingLot != null)

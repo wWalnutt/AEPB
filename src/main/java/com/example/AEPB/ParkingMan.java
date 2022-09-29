@@ -11,8 +11,7 @@ public abstract class ParkingMan {
     public ParkingMan(List<ParkingLot> parkinglots) {
         for(ParkingLot parkingLot : parkinglots){
             parkingLotQuantity++;
-            parkingLot.setParkingLotNum(parkingLotQuantity);
-            parkingLots.put(parkingLotQuantity,parkingLot);
+            parkingLots.put(parkingLot.getParkingLotNum(),parkingLot);
         }
     }
 

@@ -19,7 +19,6 @@ public class PracticeParkingManTest {
         //When
         Certification certification = parkingMan.parkCar(car).get();
         //Then
-        assertEquals(1, certification.getParkingLotNum());
         assertEquals(1, parkinglot1.count());
         assertEquals(0, parkinglot2.count());
     }
@@ -36,7 +35,6 @@ public class PracticeParkingManTest {
         //When
         Certification certification = parkingMan.parkCar(car2).get();
         //Then
-        assertEquals(2, certification.getParkingLotNum());
         assertEquals(1, parkinglot1.count());
         assertEquals(1, parkinglot2.count());
     }

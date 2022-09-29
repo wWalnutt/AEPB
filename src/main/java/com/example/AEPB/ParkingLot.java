@@ -4,18 +4,17 @@ package com.example.AEPB;
 import java.util.*;
 
 public class ParkingLot {
+    private static int totalParkingLotNum = 0;
     private int parkingLotNum;
     private int parkingLotSize;
     private Map<Certification, Car> parkingSpace;
 
 
     public ParkingLot(int parkingLotSize) {
-        this.parkingLotNum = 0;
+        totalParkingLotNum ++;
+        this.parkingLotNum = totalParkingLotNum;
         this.parkingLotSize = parkingLotSize;
         this.parkingSpace = new HashMap<>();
-    }
-    protected void setParkingLotNum(int parkingLotNum){
-        this.parkingLotNum = parkingLotNum;
     }
 
     public int getParkingLotNum(){

@@ -8,9 +8,11 @@ public class PracticeParkingMan extends ParkingMan{
     }
     @Override
     public Optional<Certification> parkCar(Car car) {
-        for(int i = 1; i <= parkingLotQuantity; i++){
-            if(!parkingLots.get(i).isFull())
-                return parkingLots.get(i).parkCar(car);
+        for(Map.Entry<Integer, ParkingLot> entry : parkingLots.entrySet()){
+            int key = entry.getKey();
+            ParkingLot value = entry.getValue();
+            if(!value.isFull())
+                return value.parkCar(car);
         }
         return Optional.empty();
     }
